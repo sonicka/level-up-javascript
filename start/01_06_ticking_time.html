@@ -12,12 +12,23 @@
   <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
 
   <!-- Use this element to render your clock -->
-  <div id="clock"></div>
+  <div id="clock">
+
+  </div>
 
   <script>
-    // Write your code here
-    
+    function clock() {
+    const clockNode = document.querySelector('#clock');
+    const ticking = setInterval(() => {
+      let date = new Date();
+      let tick = date.toLocaleTimeString();
+      clockNode.textContent = tick;
+    }, 1000)
+  }
+  clock();
   </script>
 </body>
 
 </html>
+
+<!-- 13 min -->

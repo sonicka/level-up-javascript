@@ -1,9 +1,10 @@
 class Book {
-  constructor(title, author, ISBN, numCopies) {
+  constructor(title, author, ISBN, numCopies, edition) {
     this.title = title;
     this.author = author;
     this.ISBN = ISBN;
     this.numCopies = numCopies;
+    this.edition = edition;
   }
 
   // Getter
@@ -30,4 +31,19 @@ class Book {
   }
 }
 
-// Write your code here
+class TechnicalBook extends Book {
+  constructor(title, author, ISBN, numCopies, edition) {
+    super(title, author, ISBN, numCopies);
+    this.edition = edition;
+  }
+
+  getEdition() {
+    return `The current version of this book is ${this.edition}.`
+  }
+}
+
+const book = new TechnicalBook("a","b","c",2000,4, 1);
+
+console.log(book.getEdition());
+
+/// 6 min

@@ -12,7 +12,12 @@
   <!-- To run this file right click the file in the navigation bar and select "Open with live server. Then open the developer tools in the browser and head to the console window."-->
 
   <!-- Use this element to render your menu -->
-  <ul id="menu"></ul>
+  
+  <h2>Full menu</h2>
+  <ul id="menu-full"></ul>
+  
+  <h2>Vegetarian menu</h2>
+  <ul id="menu-vegetarian"></ul>
 
   <script>
     const menu = [
@@ -33,9 +38,26 @@
         isVegetarian: true
       }
     ]
-    // Write your code here
+   
+     function renderMenu(listId, isVegetarian) {
+        const targetList = document.getElementById(listId);
+        const filteredMenu = isVegetarian ? menu.filter(item => item.isVegetarian) : menu;
 
+        filteredMenu.forEach(item => {
+          const listItem = document.createElement("li");
+          listItem.textContent = item.name;
+          targetList.appendChild(listItem);
+        });
+      }
+
+      // Render full menu
+      renderMenu("menu-full", false);
+
+      // Render vegetarian menu
+      renderMenu("menu-vegetarian", true);
   </script>
 </body>
 
 </html>
+
+<!-- 9 min -->
